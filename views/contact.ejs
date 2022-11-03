@@ -1,0 +1,16 @@
+<%- include('partials/header') -%>
+<% if(success_msg != '') {%>
+    <h4 style="color:green"><%= success_msg %></h4>
+<% } %>
+
+        <form action="/contactUs" method="POST">
+
+            <div class="inputBox">
+                <input class="form-control" type="email" name="mail" placeholder="email" autocomplete="off" required>
+            </div>
+            <textarea class="form-control" placeholder="message" name="message" cols="30" rows="10" required></textarea>
+            <input type="submit" class="btn btn-block btn-primary font-weight-bold my-3 py-3" value="Send Message">
+        </form>
+
+
+<%- include('partials/footer') -%>

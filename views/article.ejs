@@ -1,0 +1,44 @@
+<%- include ('partials/header') -%>
+
+
+<% if (typeof error != 'undefined') { %>
+    <% error.forEach(function(error){ %>
+    <h5 style="color: red;"><%= error.msg %></h5>
+    <% }) %>
+<% } %>
+
+<% if(success_msg != '') {%>
+    <h6 style="color:green"><%= success_msg %></h6>
+<% } %>
+
+<% if(error_msg != '') { %>
+  <h6 style="color:red"><%= error_msg %></h6>
+<% } %>
+<center>
+        <a href="/admin/dashboard" class="btn btn-primary mb-2">DASHBOARD</a>
+        <form action="/admin/article" method="POST" enctype="multipart/form-data">
+              <%- include ('partials/messages') %>
+
+              <p><input type="text" name="title"  placeholder="Title" required></p>
+              <p><input type="text" name="subtitle"  placeholder="Subtitle" required></p>
+              <% let category = ["NigeriaFootball", "IntFootball", "Athletics", "Boxing", "Tennis", "Wrestling", "Formula1", "Basketball"]%>
+
+              <p>Sports Category: <select name="category">
+                <option value="">Select Sport Category</option>
+              <% category.forEach((spor) => { %>
+                <option value="<%= spor %>"><%= spor %></option>
+
+              <% }) %>
+
+              </select></p>
+
+             <p>Article:</p> <textarea cols="100" rows="20" name="articles" required></textarea>
+
+              <p>Image: <input type="file" name="image"></p>
+
+               <input type="submit" class="btn btn-success" name="signup" value="Add Article">
+
+         </form>
+</center>
+
+<%- include ('partials/footer') -%>

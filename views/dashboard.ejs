@@ -1,0 +1,34 @@
+<%- include ('partials/header') %>
+<%- include ('partials/messages') %>
+<% if(success_msg != '') {%>
+    <h6 style="color:green"><%= success_msg %></h6>
+<% } %>
+
+   <h1> Welcome <%= username %> </h1>
+    
+    <h3><a href="/" class="btn btn-danger">Sign Out</a></h3>
+
+
+
+    <% record.forEach(function(records){ %>
+     <img src="data:image/<%=records.upload.contentType%>;base64,<%=records.upload.data.toString('base64')%>"
+     width="200" height="200">
+    <p>Fullnames: <b><%= records.name %></b> </p>
+    <p>Email: <b><%= records.email %></b></p>
+    <p>Registered date: <%= records.date.toLocaleDateString() %></p>
+
+    <a href="/admin/messages" class="btn btn-primary">MESSAGES</a>
+    <a href="/admin/article" class="btn btn-info">NEW ARTICLE</a>
+    <a href="/admin/sports/NigeriaFootball" class="btn btn-info">NIGERIA FOOTBALL NEWS</a>
+    <a href="/admin/sports/IntFootball" class="btn btn-info">INTERNATIONAL FOOTBALL NEWS</a>
+    <a href="/admin/sports/Athletics" class="btn btn-info">ATHLETICS</a>
+    <a href="/admin/sports/Boxing" class="btn btn-info">BOXING</a>
+    <a href="/admin/sports/Tennis" class="btn btn-info">TENNIS</a>
+    <a href="/admin/sports/Formula1" class="btn btn-info">FORMULA1</a>
+    <a href="/admin/sports/Wrestling" class="btn btn-info">WRESTLING</a>
+    <a href="/admin/sports/Basketball" class="btn btn-info">BASKETBALL</a>
+    <% }) %>
+
+
+
+<%- include ('partials/footer') %>

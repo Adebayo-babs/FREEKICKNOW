@@ -1,0 +1,29 @@
+<%- include ('partials/header') %>
+
+		<h2>Edit Article</h2>
+
+		<% if(typeof(error) != 'undefined') { %>
+
+				<% error.forEach(function(err){ %>
+							<h5 style="color: red;"><%= err %></h5>
+				<% }) %>
+		<% } %>
+
+		<% if(success_msg != '') {%>
+				<h6 style="color:green"><%= success_msg %></h6>
+		<% } %>
+
+		<% if(error_msg != '') { %>
+				<h6 style="color:red"><%= error_msg %></h6>
+		<% } %>
+
+		<% record.forEach((r) => { %>
+				<form action="/admin/editLat/<%= r._id %>" method="post">
+					<p>Title: <input type="text" name="title" value="<%= r.title %>"></p>
+					<p>Subtitle: <input type="text" name="subtitle" value="<%= r.subtitle %>"></p>
+					<p>Article: <br> <textarea name="articles" rows="20" cols="100"><%= r.articles %></textarea></p>
+					<input type="submit" class="btn btn-success" name="" value="Edit Article">
+				</form>
+			<% }) %>
+
+<%- include ('partials/footer') %>

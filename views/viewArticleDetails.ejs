@@ -1,0 +1,31 @@
+<%- include ('partials/header') %>
+
+<!-- Article Detail Start -->
+<div class="container-fluid pb-5">
+    <div class="row px-xl-5">
+        <% record.forEach(function(records){ %>
+        <div class="col-lg-5 mb-30">
+            <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner bg-light">
+                    <div class="carousel-item active">
+                        <img class="w-100 h-100" src="data:image/<%=records.upload.contentType%>;base64,<%=records.upload.data.toString('base64')%>" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 h-auto mb-30">
+            <div class="h-100 bg-light p-30">
+                <h6 style="color: yellow;"><%= records.subtitle %></h6>
+                <h3><%= records.title %></h3>
+                <p class="article mb-4"><%= records.articles %></p>
+                <small>Posted On: <%= records.date.toLocaleDateString() %></small>
+                
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+<!-- Article Detail End -->
+
+<%- include ('partials/footer') %>

@@ -1,0 +1,13 @@
+
+
+<%- include ('partials/header') %>
+<%- include ('partials/messages') %>
+
+        <h2>Login System</h2>
+        <form action="/admin/login" method="POST">
+            <p><input type="text" name="username"  placeholder="Enter your username"></p>
+            <input type="password" name="password" placeholder="password">
+            <button type="submit" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Submit</button>
+        </form>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,15 @@
+
+<%- include ('partials/header') %>
+  <center>
+   <h1 class="btn btn-primary">MESSAGES</h1> <a href="/admin/dashboard" class="btn btn-info">DASHBOARD</a>
+  </center>
+
+    <% record.forEach(function(records){ %>
+        <h3><%= records.mail %></h3>
+        <p><%= records.message %></p>
+        <small>Posted On: <%= records.date.toLocaleDateString() %></small>
+    <% }) %>
+
+
+
+<%- include ('partials/footer') %>
